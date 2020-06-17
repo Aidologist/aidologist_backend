@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="baac5c98-d8ae-4497-9bbc-893b1ee96dbd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="xq: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="$USER_HOME$/go/go1.13.4" />
+  <component name="ProjectId" id="1cn18ugdZ2ZN8XTbObL52VZR2KF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="wkBackEnd" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="wkBackEnd" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="895" y="337" width="1408" height="1165" key="#GOROOT" timestamp="1592417464930">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state x="895" y="337" width="1408" height="1165" key="#GOROOT/0.36.3200.1764@0.36.3200.1764" timestamp="1592417464930" />
+    <state x="1041" y="560" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592420518835">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state x="1041" y="560" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.36.3200.1764@0.36.3200.1764" timestamp="1592420518835" />
+    <state width="3118" height="467" key="GridCell.Tab.0.bottom" timestamp="1592431546903">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state width="3118" height="467" key="GridCell.Tab.0.bottom/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546903" />
+    <state width="3118" height="467" key="GridCell.Tab.0.center" timestamp="1592431546902">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state width="3118" height="467" key="GridCell.Tab.0.center/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546902" />
+    <state width="3118" height="467" key="GridCell.Tab.0.left" timestamp="1592431546901">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state width="3118" height="467" key="GridCell.Tab.0.left/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546901" />
+    <state width="3118" height="467" key="GridCell.Tab.0.right" timestamp="1592431546903">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state width="3118" height="467" key="GridCell.Tab.0.right/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546903" />
+    <state width="550" height="932" key="HiddenNamespacesPopup" timestamp="1592420528357">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state width="550" height="932" key="HiddenNamespacesPopup/0.36.3200.1764@0.36.3200.1764" timestamp="1592420528357" />
+    <state x="1003" y="36" width="1189" height="1760" key="search.everywhere.popup" timestamp="1592427895511">
+      <screen x="0" y="36" width="3200" height="1764" />
+    </state>
+    <state x="1003" y="36" width="1189" height="1760" key="search.everywhere.popup/0.36.3200.1764@0.36.3200.1764" timestamp="1592427895511" />
+  </component>
+</project>
