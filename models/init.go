@@ -33,6 +33,7 @@ func init()  {
 	//========================================
 	orm.RegisterModel(new(User))
 	orm.RegisterModel(new(Task))
+	orm.RegisterModel(new(Company))
 	//========================================
 	// Run model registers
 	//========================================
