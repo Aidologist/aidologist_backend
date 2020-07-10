@@ -2,7 +2,7 @@ package models
 
 import (
 	"wkBackEnd/utils/databases"
-	"wkBackEnd_old/utils/modelsFunc"
+	"wkBackEnd/utils/modelsFunc"
 )
 
 //--------------------------------------- Data Models Below ---------------------------------------
@@ -27,7 +27,7 @@ type User struct {
 	// Many to many
 
 	// Reverse relationship
-	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
+	//CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
 
 }
 

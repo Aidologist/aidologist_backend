@@ -2,7 +2,7 @@ package models
 
 import (
 	"wkBackEnd/utils/databases"
-	"wkBackEnd_old/utils/modelsFunc"
+	"wkBackEnd/utils/modelsFunc"
 )
 
 //--------------------------------------- Data Models Below ---------------------------------------
@@ -24,7 +24,7 @@ type Company struct {
 	// One to Many
 
 	// Many to many
-	FavoriteUsers  []*User `orm:"rel(m2m)"`     // Many to Many with User
+	//FavoriteUsers  []*User `orm:"rel(m2m)"`     // Many to Many with User
 
 	// Reverse relationship
 
