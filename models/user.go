@@ -1,10 +1,17 @@
 package models
 
-import "wkBackEnd/utils/databases"
+import (
+	"wkBackEnd/utils/databases"
+	"wkBackEnd_old/utils/modelsFunc"
+)
 
-//========================================
-// User model
-//========================================
+//--------------------------------------- Data Models Below ---------------------------------------
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
 
 type User struct {
 	Id       int
@@ -12,6 +19,16 @@ type User struct {
 	Username string
 	Password string
 	//Profile  *Profile `orm:"null;rel(one);on_delete(set_null)"`
+
+	// One to One
+
+	// One to Many
+
+	// Many to many
+
+	// Reverse relationship
+	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
+
 }
 
 func (this *User) AddUser() (int64, bool) {
@@ -42,15 +59,48 @@ func (this *User) GetUser() bool {
 	}
 }
 
-//========================================
-// Profile model
-//========================================
 
-//type Profile struct {
-//	Id      int
-//	Gender  string
-//	Age     int
-//	Address string
-//	Email   string
-//	User 	*User     `orm:"null;reverse(one)"`
-//}
+//--------------------------------------- CRUD Methods Below --------------------------------------
+//---------------------------------- Create, Read, Update, Delete ---------------------------------
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+
+//--------------------------------------- Create Methods Below --------------------------------------
+// Insert the User into the database
+// TODO: Check if the user already existed in the database
+func (this *User) Create() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Insert(this)
+}
+
+
+//--------------------------------------- Read Methods Below --------------------------------------
+// Read the User from the database
+// TODO: Check if the user already existed in the database
+func (this *User) Read() {
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this)
+}
+
+//--------------------------------------- Update Methods Below --------------------------------------
+// Update the User entity
+// TODO: Check if the user already existed in the database
+func (this *User) Update() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Update(this)
+}
+
+
+//--------------------------------------- Delete Methods Below --------------------------------------
+// TODO: Check if the user already existed in the database
+// Delete the User by given Id
+func (this *User) Delete() {
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this, "Id")  // find the User by id
+	_, _ = o.Delete(this)
+}
+
