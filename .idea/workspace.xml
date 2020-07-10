@@ -37,6 +37,9 @@
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="wkBackEnd" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -111,22 +114,22 @@
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
     <state x="1041" y="560" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.36.3200.1764@0.36.3200.1764" timestamp="1592420518835" />
-    <state width="3118" height="467" key="GridCell.Tab.0.bottom" timestamp="1592431546903">
+    <state width="3118" height="467" key="GridCell.Tab.0.bottom" timestamp="1592445893105">
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
-    <state width="3118" height="467" key="GridCell.Tab.0.bottom/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546903" />
-    <state width="3118" height="467" key="GridCell.Tab.0.center" timestamp="1592431546902">
+    <state width="3118" height="467" key="GridCell.Tab.0.bottom/0.36.3200.1764@0.36.3200.1764" timestamp="1592445893105" />
+    <state width="3118" height="467" key="GridCell.Tab.0.center" timestamp="1592445893104">
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
-    <state width="3118" height="467" key="GridCell.Tab.0.center/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546902" />
-    <state width="3118" height="467" key="GridCell.Tab.0.left" timestamp="1592431546901">
+    <state width="3118" height="467" key="GridCell.Tab.0.center/0.36.3200.1764@0.36.3200.1764" timestamp="1592445893104" />
+    <state width="3118" height="467" key="GridCell.Tab.0.left" timestamp="1592445893103">
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
-    <state width="3118" height="467" key="GridCell.Tab.0.left/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546901" />
-    <state width="3118" height="467" key="GridCell.Tab.0.right" timestamp="1592431546903">
+    <state width="3118" height="467" key="GridCell.Tab.0.left/0.36.3200.1764@0.36.3200.1764" timestamp="1592445893103" />
+    <state width="3118" height="467" key="GridCell.Tab.0.right" timestamp="1592445893104">
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
-    <state width="3118" height="467" key="GridCell.Tab.0.right/0.36.3200.1764@0.36.3200.1764" timestamp="1592431546903" />
+    <state width="3118" height="467" key="GridCell.Tab.0.right/0.36.3200.1764@0.36.3200.1764" timestamp="1592445893104" />
     <state width="550" height="932" key="HiddenNamespacesPopup" timestamp="1592420528357">
       <screen x="0" y="36" width="3200" height="1764" />
     </state>
