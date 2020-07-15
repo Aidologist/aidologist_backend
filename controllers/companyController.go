@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
+	"strconv"
 	"wkBackEnd/models"
 )
 
@@ -25,6 +26,47 @@ func (u *CompanyController) Signup() {
 	//company.AddCompany
 	company.Create()
 }
+
+// tested and successfully delete a company in the database
+// @Title DeleteCompany
+// @Description Delete company by company ID
+// @Success 200 {string}
+// @Failure 403
+// @router /deleteCompany [post]
+func (u *CompanyController) DeleteCompany() {
+	companyId := u.GetString("companyID")
+	companyid,_ := strconv.Atoi(companyId)
+	var company models.Company = models.Company{
+		Id: companyid}
+	company.Delete()
+}
+
+// Tested sucessfully
+// But you can not leave companyname,password,email blank
+// @Title UpdateCompany
+// @Description Update company Info
+// @Success 200 {string}
+// @Failure 403
+// @router /updateCompany [post]
+func (u *CompanyController) UpdateCompany() {
+	comapnyId := u.GetString("comapnyID")
+	comapnyid,_ := strconv.Atoi(comapnyId)
+	var company models.Company = models.Company{
+		Id: comapnyid,
+		Name: u.GetString("name"),
+		Password: u.GetString("password"),
+		EMail: u.GetString("email")}
+	company.Update()
+}
+
+
+
+
+
+
+
+
+
 
 // @Title Login
 // @Description
