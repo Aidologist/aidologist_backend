@@ -25,6 +25,11 @@ func init() {
 				&controllers.TaskController{},
 			),
 		),
+		beego.NSNamespace("/company",
+			beego.NSInclude(
+				&controllers.CompanyController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

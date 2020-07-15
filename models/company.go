@@ -1,8 +1,8 @@
 package models
 
 import (
-	"wkBackEnd/utils/modelsFunc"
 	"wkBackEnd/utils/databases"
+	"wkBackEnd/utils/modelsFunc"
 )
 
 //--------------------------------------- Data Models Below ---------------------------------------

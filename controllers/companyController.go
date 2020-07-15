@@ -9,6 +9,8 @@ type CompanyController struct {
 	beego.Controller
 }
 
+// tested and successfully created a user in the database
+// the id also atomatically increased
 // @Title Signup
 // @Description
 // @Success 200 {string}
@@ -20,7 +22,8 @@ func (u *CompanyController) Signup() {
 		Name: u.GetString("name"),
 		Password: u.GetString("password"),
 		EMail: u.GetString("email")}
-	company.AddCompany()
+	//company.AddCompany
+	company.Create()
 }
 
 // @Title Login
