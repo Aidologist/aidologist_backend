@@ -2,9 +2,10 @@ package models
 
 import (
 	"time"
-	"wkBackEnd/utils/databases"
 	"wkBackEnd/utils/modelsFunc"
 )
+// This file contains all the third tables that many to many relationship yield
+// We can manges these third tables using data models, then we can add different attributes in the third tables
 
 //--------------------------------------- Data Models Below ---------------------------------------
 // ================================================================================================
@@ -14,54 +15,17 @@ import (
 // ================================================================================================
 // ================================================================================================
 
-type User struct {
-	Id       int
-	EMail 	 string
-	Username string
-	Password string
-	CreateTime 	time.Time	`orm:"auto_now_add;type(datetime)"`
-	UpdateTime  time.Time	`orm:"auto_now;type(datetime)"`
-
-	//Profile  *Profile `orm:"null;rel(one);on_delete(set_null)"`
-
-	// One to One
-
-	// One to Many
-
-	// Many to many
-
-	// Reverse relationship
-	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
-
+type CompanyFavoriteUser struct {
+	Id    int64
+	Company    *Company    `orm:"rel(fk)"`
+	User    *User    `orm:"rel(fk)"`
+	FavoriteAt   time.Time    `orm:"auto_now_add;type(datetime)"`
 }
 
-func (this *User) AddUser() (int64, bool) {
-	success, o := databases.ConnectOrm()
-	if success {
-		index, err := o.Insert(this)
-		if err == nil {
-			return index, true
-		} else {
-			return 0, false
-		}
-	} else {
-		return 0, false
-	}
+func (CompanyFavoriteUser) TableName() string{
+	return "company_favorite_user"
 }
 
-func (this *User) GetUser() bool {
-	success, o := databases.ConnectOrm()
-	if success {
-		err := o.Read(this)
-		if err == nil {
-			return true
-		} else {
-			return false
-		}
-	} else {
-		return false
-	}
-}
 
 
 //--------------------------------------- CRUD Methods Below --------------------------------------
@@ -74,37 +38,31 @@ func (this *User) GetUser() bool {
 // ================================================================================================
 
 //--------------------------------------- Create Methods Below --------------------------------------
-// Insert the User into the database
-// TODO: Check if the user already existed in the database
-func (this *User) Create() {
+// Insert the CompanyFavoriteUser into the database
+func (this *CompanyFavoriteUser) Create() {
 	var _, o = modelsFunc.ConnectORM()
 	_, _ = o.Insert(this)
 }
 
-
 //--------------------------------------- Read Methods Below --------------------------------------
-// Read the User from the database
-// TODO: Check if the user already existed in the database
-func (this *User) Read() {
+// Read the CompanyFavoriteUser from the database
+// If the database doesn't contain this CompanyFavoriteUser, the CompanyFavoriteUser returned will have the id of 0
+func (this *CompanyFavoriteUser) Read() {
 	var _, o = modelsFunc.ConnectORM()
-	_ = o.Read(this)
+	_ = o.Read(this)    // read by id of the CompanyFavoriateUser
 }
 
 //--------------------------------------- Update Methods Below --------------------------------------
-// Update the User entity
-// TODO: Check if the user already existed in the database
-func (this *User) Update() {
+// Update the CompanyFavoriteUser entity in the database
+func (this *CompanyFavoriteUser) Update() {
 	var _, o = modelsFunc.ConnectORM()
 	_, _ = o.Update(this)
 }
 
-
 //--------------------------------------- Delete Methods Below --------------------------------------
-// TODO: Check if the user already existed in the database
-// Delete the User by given Id
-func (this *User) Delete() {
+// Delete the CompanyFavoriteUser by given Id
+func (this *CompanyFavoriteUser) Delete() {
 	var _, o = modelsFunc.ConnectORM()
-	_ = o.Read(this, "Id")  // find the User by id
+	_ = o.Read(this, "Id")  // find the CompanyFavoriteUser by id
 	_, _ = o.Delete(this)
 }
-

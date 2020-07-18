@@ -1,6 +1,7 @@
 package models
 
 import (
+	"time"
 	"wkBackEnd/utils/databases"
 	"wkBackEnd/utils/modelsFunc"
 )
@@ -18,6 +19,8 @@ type Company struct {
 	EMail 	 string
 	Name	 string
 	Password string
+	CreateTime 	time.Time	`orm:"auto_now_add;type(datetime)"`
+	UpdateTime  time.Time	`orm:"auto_now;type(datetime)"`
 
 	// One to One
 
@@ -25,8 +28,7 @@ type Company struct {
 	Projects []*Project `orm:"reverse(many)"`
 
 	// Many to many
-	//FavoriteUsers  []*User `orm:"rel(m2m)"`     // Many to Many with User
-
+	FavoriteUsers  []*User `orm:"rel(m2m);rel_through(wkBackEnd/models.CompanyFavoriteUser)"`     // Many to Many with User
 	// Reverse relationship
 
 }

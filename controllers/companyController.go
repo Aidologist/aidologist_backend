@@ -23,7 +23,6 @@ func (c *CompanyController) Signup() {
 		Name: c.GetString("name"),
 		Password: c.GetString("password"),
 		EMail: c.GetString("email")}
-	//company.AddCompany
 	company.Create()
 }
 
@@ -59,10 +58,51 @@ func (c *CompanyController) UpdateCompany() {
 	company.Update()
 }
 
+// tested and successfully created a user in the database
+// the id also atomatically increased
+// @Title CompanyLikesUser
+// @Description Company likes a user
+// @Success 200 {string}
+// @Failure 403
+// @router /companyLikesUser [post]
+func (c *CompanyController) CompanyLikesUser() {
+	comapnyId := c.GetString("comapnyID")
+	comapnyid,_ := strconv.Atoi(comapnyId)
+	var company = models.Company{Id:comapnyid}
+	userId := c.GetString("userID")
+	userid,_ := strconv.Atoi(userId)
+	var user = models.User{Id:userid}
+	var companyFavoriteUser models.CompanyFavoriteUser = models.CompanyFavoriteUser{
+		Id: 0,
+		Company: &company,
+		User: &user}
+	companyFavoriteUser.Create()
+}
 
-
-
-
+// tested and successfully created a user in the database ?????
+// TODO We need to find the object from the given 2 id's and then delete the object of the right id
+// the id also atomatically increased
+// @Title CompanyStopLikesUser
+// @Description Company stop liking a user
+// @Success 200 {string}
+// @Failure 403
+// @router /companyStopLikesUser [post]
+func (c *CompanyController) CompanyStopLikesUser() {
+	comapnyId := c.GetString("comapnyID")
+	comapnyid,_ := strconv.Atoi(comapnyId)
+	var company = models.Company{Id:comapnyid}
+	userId := c.GetString("userID")
+	userid,_ := strconv.Atoi(userId)
+	var user = models.User{Id:userid}
+	var companyFavoriteUser models.CompanyFavoriteUser = models.CompanyFavoriteUser{
+		Company: &company,
+		User: &user}
+	println("the id is:    ")
+	println(companyFavoriteUser.Id)
+	println(companyFavoriteUser.User.Id)
+	println(companyFavoriteUser.Company.Id)
+	companyFavoriteUser.Delete()
+}
 
 
 
