@@ -9,6 +9,24 @@ func init() {
 
     beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"],
         beego.ControllerComments{
+            Method: "CompanyLikesUser",
+            Router: `/companyLikesUser`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"],
+        beego.ControllerComments{
+            Method: "CompanyStopLikesUser",
+            Router: `/companyStopLikesUser`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:CompanyController"],
+        beego.ControllerComments{
             Method: "DeleteCompany",
             Router: `/deleteCompany`,
             AllowHTTPMethods: []string{"post"},
@@ -38,6 +56,15 @@ func init() {
         beego.ControllerComments{
             Method: "UpdateCompany",
             Router: `/updateCompany`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"],
+        beego.ControllerComments{
+            Method: "Create",
+            Router: `/create`,
             AllowHTTPMethods: []string{"post"},
             MethodParams: param.Make(),
             Filters: nil,

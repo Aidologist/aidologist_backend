@@ -1,6 +1,7 @@
 package models
 
 import (
+	"time"
 	"wkBackEnd/utils/databases"
 	"wkBackEnd/utils/modelsFunc"
 )
@@ -18,6 +19,9 @@ type User struct {
 	EMail 	 string
 	Username string
 	Password string
+	CreateTime 	time.Time	`orm:"auto_now_add;type(datetime)"`
+	UpdateTime  time.Time	`orm:"auto_now;type(datetime)"`
+
 	//Profile  *Profile `orm:"null;rel(one);on_delete(set_null)"`
 
 	// One to One
@@ -27,7 +31,7 @@ type User struct {
 	// Many to many
 
 	// Reverse relationship
-	//CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
+	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
 
 }
 

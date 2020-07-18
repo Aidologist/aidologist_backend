@@ -16,7 +16,7 @@ type Project struct {
 	EndTime			time.Time
 	DueTime			time.Time
 
-	Company 		*Company 	`orm:"rel(fk)"`
+	//Company 		*Company 	`orm:"rel(fk)"`
 }
 
 //--------------------------------------- Create Methods Below --------------------------------------
