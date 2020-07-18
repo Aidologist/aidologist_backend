@@ -17,12 +17,12 @@ type CompanyController struct {
 // @Success 200 {string}
 // @Failure 403
 // @router /signup [post]
-func (u *CompanyController) Signup() {
+func (c *CompanyController) Signup() {
 	var company models.Company = models.Company{
 		Id: 0,
-		Name: u.GetString("name"),
-		Password: u.GetString("password"),
-		EMail: u.GetString("email")}
+		Name: c.GetString("name"),
+		Password: c.GetString("password"),
+		EMail: c.GetString("email")}
 	//company.AddCompany
 	company.Create()
 }
@@ -33,8 +33,8 @@ func (u *CompanyController) Signup() {
 // @Success 200 {string}
 // @Failure 403
 // @router /deleteCompany [post]
-func (u *CompanyController) DeleteCompany() {
-	companyId := u.GetString("companyID")
+func (c *CompanyController) DeleteCompany() {
+	companyId := c.GetString("companyID")
 	companyid,_ := strconv.Atoi(companyId)
 	var company models.Company = models.Company{
 		Id: companyid}
@@ -48,14 +48,14 @@ func (u *CompanyController) DeleteCompany() {
 // @Success 200 {string}
 // @Failure 403
 // @router /updateCompany [post]
-func (u *CompanyController) UpdateCompany() {
-	comapnyId := u.GetString("comapnyID")
+func (c *CompanyController) UpdateCompany() {
+	comapnyId := c.GetString("comapnyID")
 	comapnyid,_ := strconv.Atoi(comapnyId)
 	var company models.Company = models.Company{
 		Id: comapnyid,
-		Name: u.GetString("name"),
-		Password: u.GetString("password"),
-		EMail: u.GetString("email")}
+		Name: c.GetString("name"),
+		Password: c.GetString("password"),
+		EMail: c.GetString("email")}
 	company.Update()
 }
 
