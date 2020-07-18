@@ -14,7 +14,7 @@ type Task struct {
 	Payment     int
 	PayCurrency	string //enum.Currency
 
-	PublishTIme time.Time
+	PublishTime time.Time
 	UpdateTime	time.Time
 	EndTime		time.Time
 	DueTime		time.Time

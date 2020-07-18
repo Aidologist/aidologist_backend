@@ -28,7 +28,7 @@ func (t *TaskController) PublishTask() {
 		Desc:        t.GetString("desc"),
 		Payment:     pay,
 		PayCurrency: t.GetString("paycurrency"),
-		PublishTIme: time.Now(),
+		PublishTime: time.Now(),
 		UpdateTime:  time.Now(),
 		EndTime:     endtime,
 		DueTime:     duetime}

@@ -24,6 +24,7 @@ type Company struct {
 	// One to Many
 
 	// Many to many
+	Project []*Project `orm:"rel(m2m);rel_table(company_own_project)"`
 	//FavoriteUsers  []*User `orm:"rel(m2m)"`     // Many to Many with User
 
 	// Reverse relationship
