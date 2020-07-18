@@ -43,6 +43,24 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"],
+        beego.ControllerComments{
+            Method: "Create",
+            Router: `/create`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:ProjectController"],
+        beego.ControllerComments{
+            Method: "GetAll",
+            Router: `/get/all`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
     beego.GlobalControllerRouter["wkBackEnd/controllers:TaskController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers:TaskController"],
         beego.ControllerComments{
             Method: "GetTask",

@@ -31,7 +31,8 @@ func (this *Project) Create() {
 //--------------------------------------- Read Methods Below --------------------------------------
 // Read the User from the database
 // TODO: Check if the user already existed in the database
-func (this *Project) Read() {
+func (this *Project) Read(id int) {
+	this.Id = id
 	var _, o = modelsFunc.ConnectORM()
 	_ = o.Read(this)
 }

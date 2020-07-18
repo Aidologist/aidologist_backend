@@ -22,7 +22,7 @@ type Company struct {
 	// One to One
 
 	// One to Many
-	Project []*Project `orm:"reverse(many)"`
+	Projects []*Project `orm:"reverse(many)"`
 
 	// Many to many
 	//FavoriteUsers  []*User `orm:"rel(m2m)"`     // Many to Many with User
@@ -80,7 +80,7 @@ func (this *Company) Create() {
 //--------------------------------------- Read Methods Below --------------------------------------
 // Read the Company from the database
 // If the database doesn't contain this company, the company returned will have the id of 0
-func (this *Company) Read() {
+func (this *Company) Read(int) {
 	var _, o = modelsFunc.ConnectORM()
 	_ = o.Read(this)    // read by id of the company
 }
@@ -98,4 +98,10 @@ func (this *Company) Delete() {
 	var _, o = modelsFunc.ConnectORM()
 	_ = o.Read(this, "Id")  // find the Company by id
 	_, _ = o.Delete(this)
+}
+
+//--------------------------------------- Advanced Method Below --------------------------------------
+func (this *Company) ReadAllProject() {
+	var _, o = modelsFunc.ConnectORM()
+	o.QueryTable("project").Filter("Company", 1).RelatedSel().All(&this.Projects)
 }
