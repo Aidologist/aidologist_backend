@@ -44,10 +44,18 @@ func (p *ProjectController) GetAll() {
 	var company = new(models.Company)
 	id, _ := strconv.Atoi(p.GetString("id"))
 	company.Read(id)
+	//println(company.Id)
+	//println(company.EMail)
+	//println(company.Name)
+	//println(company.Password)
+	//println(company.Projects)
 	company.ReadAllProject()
 	var companyProjectsMap = make(map[int]models.Project)
+	//for i := range company.Projects {
+	//	println(company.Projects[i])
+	//}
 	for i := range company.Projects {
-		companyProjectsMap[i] = *company.Projects[i]
+		companyProjectsMap[i+1] = *company.Projects[i]
 	}
 	p.Data["json"] = map[string]interface{}{
 		"size" : len(company.Projects),

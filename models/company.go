@@ -82,7 +82,8 @@ func (this *Company) Create() {
 //--------------------------------------- Read Methods Below --------------------------------------
 // Read the Company from the database
 // If the database doesn't contain this company, the company returned will have the id of 0
-func (this *Company) Read(int) {
+func (this *Company) Read(id int) {
+	this.Id = id
 	var _, o = modelsFunc.ConnectORM()
 	_ = o.Read(this)    // read by id of the company
 }
@@ -105,5 +106,6 @@ func (this *Company) Delete() {
 //--------------------------------------- Advanced Method Below --------------------------------------
 func (this *Company) ReadAllProject() {
 	var _, o = modelsFunc.ConnectORM()
-	o.QueryTable("project").Filter("Company", 1).RelatedSel().All(&this.Projects)
+	o.QueryTable("Project").Filter("Company__Id", this.Id).All(&this.Projects)
+// .Filter("Company", this.Id)
 }
