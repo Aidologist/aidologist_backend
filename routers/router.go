@@ -8,30 +8,32 @@
 package routers
 
 import (
-	"wkBackEnd/controllers/user"
-
 	"github.com/astaxie/beego"
+	companyController "wkBackEnd/controllers/company"
+	projectController "wkBackEnd/controllers/company/project"
+	taskController "wkBackEnd/controllers/task"
+	userController "wkBackEnd/controllers/user"
 )
 
 func init() {
 	ns := beego.NewNamespace("/main",
 		beego.NSNamespace("/user",
 			beego.NSInclude(
-				&user.UserController{},
+				&userController.UserController{},
 			),
 		),
 		beego.NSNamespace("/task",
 			beego.NSInclude(
-				&task.TaskController{},
+				&taskController.TaskController{},
 			),
 		),
 		beego.NSNamespace("/company",
 			beego.NSInclude(
-				&company.CompanyController{},
+				&companyController.CompanyController{},
 			),
 			beego.NSNamespace("/project",
 				beego.NSInclude(
-					&project.ProjectController{},
+					&projectController.ProjectController{},
 				),
 			),
 		),
