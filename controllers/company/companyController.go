@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 	"strconv"
 	"wkBackEnd/models"
 )
@@ -79,8 +80,8 @@ func (c *CompanyController) CompanyLikesUser() {
 	companyFavoriteUser.Create()
 }
 
-// tested and successfully created a user in the database ?????
-// TODO We need to find the object from the given 2 id's and then delete the object of the right id
+// tested and successfully created a user in the database
+// !!!!! we have to read the object by both attributes and then delete it.
 // the id also atomatically increased
 // @Title CompanyStopLikesUser
 // @Description Company stop liking a user
@@ -88,22 +89,37 @@ func (c *CompanyController) CompanyLikesUser() {
 // @Failure 403
 // @router /companyStopLikesUser [post]
 func (c *CompanyController) CompanyStopLikesUser() {
+	o := orm.NewOrm()
+
 	comapnyId := c.GetString("comapnyID")
 	comapnyid,_ := strconv.Atoi(comapnyId)
 	var company = models.Company{Id:comapnyid}
+
 	userId := c.GetString("userID")
 	userid,_ := strconv.Atoi(userId)
 	var user = models.User{Id:userid}
+
 	var companyFavoriteUser models.CompanyFavoriteUser = models.CompanyFavoriteUser{
 		Company: &company,
 		User: &user}
+
 	println("the id is:    ")
 	println(companyFavoriteUser.Id)
 	println(companyFavoriteUser.User.Id)
 	println(companyFavoriteUser.Company.Id)
+
+	err := o.Read(&companyFavoriteUser,"Company","User")
+
+	if err == orm.ErrNoRows {
+		println("找不到这个你要找的objecct，不在database里面")
+	} else if err == orm.ErrMissPK {
+		println("你却少了primary key")
+	} else {
+		println(companyFavoriteUser.Id)
+	}
+
 	companyFavoriteUser.Delete()
 }
-
 
 
 
