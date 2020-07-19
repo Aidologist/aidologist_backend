@@ -62,3 +62,15 @@ func (p *ProjectController) GetAll() {
 		"projects" : companyProjectsMap}
 	p.ServeJSON()
 }
+
+// @Title Delete
+// @Description
+// @Success 200 {string}
+// @Failure 403
+// @router /delete [delete]
+func (p *ProjectController) Delete() {
+	var project = new(models.Project)
+	id, _ := strconv.Atoi(p.GetString("id"))
+	project.Read(id)
+	project.Delete()
+}

@@ -32,8 +32,22 @@ type User struct {
 
 	// Reverse relationship
 	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
+}
+
+//------------------------------------ Attached Data model below ----------------------------------
+// ================================================================================================
+
+type Supervisor struct {
 
 }
+
+type CompanyUser struct {
+
+}
+
+//-------------------------------------- Unused Methods Below -------------------------------------
+//--------------------------------------- But not yet deleted -------------------------------------
+// ================================================================================================
 
 func (this *User) AddUser() (int64, bool) {
 	success, o := databases.ConnectOrm()

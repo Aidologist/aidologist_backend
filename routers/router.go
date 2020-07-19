@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"wkBackEnd/controllers"
+	"wkBackEnd/controllers/user"
 
 	"github.com/astaxie/beego"
 )
@@ -17,21 +17,21 @@ func init() {
 	ns := beego.NewNamespace("/main",
 		beego.NSNamespace("/user",
 			beego.NSInclude(
-				&controllers.UserController{},
+				&user.UserController{},
 			),
 		),
 		beego.NSNamespace("/task",
 			beego.NSInclude(
-				&controllers.TaskController{},
+				&task.TaskController{},
 			),
 		),
 		beego.NSNamespace("/company",
 			beego.NSInclude(
-				&controllers.CompanyController{},
+				&company.CompanyController{},
 			),
 			beego.NSNamespace("/project",
 				beego.NSInclude(
-					&controllers.ProjectController{},
+					&project.ProjectController{},
 				),
 			),
 		),
