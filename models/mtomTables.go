@@ -5,7 +5,13 @@ import (
 	"wkBackEnd/utils/modelsFunc"
 )
 // This file contains all the third tables that many to many relationship yield
-// We can manges these third tables using data models, then we can add different attributes in the third tables
+// We can manges these third middle tables using data models, then we can add different attributes in the third tables
+// This middle tale is very important
+// When you want to create a many to many relationship between two entities
+// we just have to add a row in this middle table
+// Same thing when we want to delete the many to many relationship between the two enetities
+// We just have to delete a row from this middle table
+
 
 //--------------------------------------- Data Models Below ---------------------------------------
 // ================================================================================================

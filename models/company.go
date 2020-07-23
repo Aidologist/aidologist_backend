@@ -26,6 +26,7 @@ type Company struct {
 
 	// One to Many
 	Projects []*Project `orm:"reverse(many)"`
+	TasksPosted []*Task `orm:"reverse(many)"`
 
 	// Many to many
 	FavoriteUsers  []*User `orm:"rel(m2m);rel_through(wkBackEnd/models.CompanyFavoriteUser)"`     // Many to Many with User
@@ -103,9 +104,24 @@ func (this *Company) Delete() {
 	_, _ = o.Delete(this)
 }
 
-//--------------------------------------- Advanced Method Below --------------------------------------
+//--------------------------------------- Advanced Methods Below --------------------------------------
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+
+// Obtain a list of all projects belong to the company
 func (this *Company) ReadAllProject() {
 	var _, o = modelsFunc.ConnectORM()
 	o.QueryTable("Project").Filter("Company__Id", this.Id).All(&this.Projects)
 // .Filter("Company", this.Id)
+}
+
+// Obtain a list of all tasks the company has posted
+func (this *Company) ReadPostedTaskList() {
+	var _, o = modelsFunc.ConnectORM()
+	o.QueryTable("Task").Filter("Company__Id", this.Id).All(&this.TasksPosted)
+	// .Filter("Company", this.Id)
 }

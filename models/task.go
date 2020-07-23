@@ -3,6 +3,7 @@ package models
 import (
 	"time"
 	"wkBackEnd/utils/databases"
+	"wkBackEnd/utils/modelsFunc"
 )
 
 type Task struct {
@@ -18,6 +19,9 @@ type Task struct {
 	UpdateTime	time.Time
 	EndTime		time.Time
 	DueTime		time.Time
+
+	// Many to One relationship
+	CompanyWhoPosted 		*Company 	`orm:"rel(fk)"`    // company who posted this task
 }
 
 func (this *Task) AddTask() (int64, bool) {
@@ -75,4 +79,49 @@ func (this *Task) ReadTask() bool {
 	} else {
 		return false
 	}
+}
+
+
+
+
+
+
+//--------------------------------------- CRUD Methods Below --------------------------------------
+//---------------------------------- Create, Read, Update, Delete ---------------------------------
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+
+//--------------------------------------- Create Methods Below --------------------------------------
+// Insert the Task into the database
+func (this *Task) Create() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Insert(this)
+}
+
+//--------------------------------------- Read Methods Below --------------------------------------
+// Read the Task from the database
+// If the database doesn't contain this Task, the company returned will have the id of 0
+func (this *Task) Read(id int) {
+	this.Id = id
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this)    // read by id of the Task
+}
+
+//--------------------------------------- Update Methods Below --------------------------------------
+// Update the Task entity in the database
+func (this *Task) Update() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Update(this)
+}
+
+//--------------------------------------- Delete Methods Below --------------------------------------
+// Delete the Task by given Id
+func (this *Task) Delete() {
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this, "Id")  // find the Task by id
+	_, _ = o.Delete(this)
 }

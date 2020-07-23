@@ -16,6 +16,7 @@ type Project struct {
 	EndTime			time.Time
 	DueTime			time.Time
 
+	// Many to One relationship
 	Company 		*Company 	`orm:"rel(fk)"`
 }
 
