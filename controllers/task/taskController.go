@@ -12,30 +12,8 @@ type TaskController struct {
 	beego.Controller
 }
 
-// TODO: this does not look right, you don't post a task direct, some company created the task
-// @Title PublishTask
-// @Description
-// @Success 200 {string}
-// @Failure 403
-// @router /publish [post]
-//func (t *TaskController) PublishTask() {
-//	pay, _ := strconv.Atoi(t.GetString("payment"))
-//	var layout string = "2006-01-02 15:04:05"
-//	endtime, _ := time.Parse(layout, t.GetString("endtime"))
-//	duetime, _ := time.Parse(layout, t.GetString("duetime"))
-//	var task models.Task = models.Task{
-//		Id:          0,
-//		Title:       t.GetString("title"),
-//		Desc:        t.GetString("desc"),
-//		Payment:     pay,
-//		PayCurrency: t.GetString("paycurrency"),
-//		PublishTime: time.Now(),
-//		UpdateTime:  time.Now(),
-//		EndTime:     endtime,
-//		DueTime:     duetime}
-//	task.AddTask()
-//}
-
+// This is tested successfully
+// You can use chinese as the part of the string but you can't ues emoji
 // @Title Post
 // @Description Company posting a task
 // @Success 200 {string}
@@ -64,6 +42,7 @@ func (p *TaskController) Post() {
 	company.Update()
 }
 
+// This is successfully tested
 // @Title GetAllPostedTask
 // @Description Get all tasks posted by the company
 // @Success 200 {string}
@@ -87,6 +66,9 @@ func (p *TaskController) GetAllPostedTask() {
 	p.ServeJSON()
 }
 
+// This is tested successfully
+// You can not use post as the function type
+// You have to use delete as the type
 // @Title Delete
 // @Description
 // @Success 200 {string}
@@ -99,15 +81,10 @@ func (p *TaskController) Delete() {
 	task.Delete()
 }
 
-
-
-
-
-
-
-
-
-
+// Tested successfully
+// Todo be careful when you send the jason request
+// TODO all the fields have to be filled for the database to update the object
+// TODO if you only want to update one field, just send the request and leave all other fields the same
 // @Title Update
 // @Description
 // @Success 200 {string}
@@ -120,7 +97,7 @@ func (t *TaskController) Update() {
 	endtime, _ := time.Parse(layout, t.GetString("endtime"))
 	duetime, _ := time.Parse(layout, t.GetString("duetime"))
 	var task models.Task
-	task.ReadTaskbyId(id)
+	task.Read(id)
 	task.Title = t.GetString("title")
 	task.Desc = t.GetString("desc")
 	task.Payment = pay
@@ -128,7 +105,7 @@ func (t *TaskController) Update() {
 	task.UpdateTime = time.Now()
 	task.EndTime = endtime
 	task.DueTime = duetime
-	task.UpdateTask()
+	task.Update()
 }
 
 // @Title GetTask

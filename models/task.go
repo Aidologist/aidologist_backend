@@ -15,8 +15,8 @@ type Task struct {
 	Payment     int
 	PayCurrency	string //enum.Currency
 
-	PublishTime time.Time
-	UpdateTime	time.Time
+	PublishTime time.Time `orm:"auto_now_add;type(datetime)"`
+	UpdateTime	time.Time `orm:"auto_now;type(datetime)"`
 	EndTime		time.Time
 	DueTime		time.Time
 

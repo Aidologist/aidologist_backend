@@ -122,6 +122,6 @@ func (this *Company) ReadAllProject() {
 // Obtain a list of all tasks the company has posted
 func (this *Company) ReadPostedTaskList() {
 	var _, o = modelsFunc.ConnectORM()
-	o.QueryTable("Task").Filter("Company__Id", this.Id).All(&this.TasksPosted)
+	o.QueryTable("Task").Filter("CompanyWhoPosted__Id", this.Id).All(&this.TasksPosted)
 	// .Filter("Company", this.Id)
 }
