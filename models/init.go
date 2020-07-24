@@ -36,6 +36,7 @@ func init()  {
 	orm.RegisterModel(new(Company))
 	orm.RegisterModel(new(Project))
 	orm.RegisterModel(new(CompanyFavoriteUser))   // m2m tables needed to be added here
+	orm.RegisterModel(new(UserFavoriteTask))   // m2m tables needed to be added here
 	//========================================
 	// Run model registers
 	//========================================

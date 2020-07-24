@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 	"strconv"
 	"wkBackEnd/models"
 )
@@ -59,6 +60,79 @@ func (u *UserController) UpdateUser() {
 		EMail: u.GetString("email")}
 	user.Update()
 }
+
+
+// Tested successfully
+// @Title UserLikesTask
+// @Description User likes a task
+// @Success 200 {string}
+// @Failure 403
+// @router /userLikesTask [post]
+func (c *UserController) UserLikesTask() {
+	userId := c.GetString("userID")
+	userid,_ := strconv.Atoi(userId)
+	var user = models.User{Id:userid}
+	taskId := c.GetString("taskID")
+	taskid,_ := strconv.Atoi(taskId)
+	var task = models.Task{Id:taskid}
+	var userFavoriteTask models.UserFavoriteTask = models.UserFavoriteTask{
+		Id: 0,
+		Task: &task,
+		User: &user}
+	userFavoriteTask.Create()
+}
+
+// Tested successfully
+// @Title UserStopLikesTask
+// @Description User stop liking a task
+// @Success 200 {string}
+// @Failure 403
+// @router /userStopLikesTask [post]
+func (c *UserController) UserStopLikesTask() {
+	o := orm.NewOrm()
+	userId := c.GetString("userID")
+	userid,_ := strconv.Atoi(userId)
+	var user = models.User{Id:userid}
+
+	taskId := c.GetString("taskID")
+	taskid,_ := strconv.Atoi(taskId)
+	var task = models.Task{Id:taskid}
+
+	var userFavoriteTask models.UserFavoriteTask = models.UserFavoriteTask{
+		User: &user,
+		Task: &task}
+
+	err := o.Read(&userFavoriteTask,"User","Task")
+
+	if err == orm.ErrNoRows {
+		println("找不到这个你要找的objecct，不在database里面")
+	} else if err == orm.ErrMissPK {
+		println("你却少了primary key")
+	} else {
+		println(userFavoriteTask.Id)
+	}
+
+	userFavoriteTask.Delete()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // @Title Login

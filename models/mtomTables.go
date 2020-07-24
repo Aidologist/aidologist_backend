@@ -33,6 +33,17 @@ func (CompanyFavoriteUser) TableName() string{
 }
 
 
+type UserFavoriteTask struct {
+	Id    int64
+	User    *User    `orm:"rel(fk)"`
+	Task    *Task    `orm:"rel(fk)"`
+	FavoriteAt   time.Time    `orm:"auto_now_add;type(datetime)"`
+}
+
+func (UserFavoriteTask) TableName() string{
+	return "user_favorite_task"
+}
+
 
 //--------------------------------------- CRUD Methods Below --------------------------------------
 //---------------------------------- Create, Read, Update, Delete ---------------------------------
@@ -72,3 +83,41 @@ func (this *CompanyFavoriteUser) Delete() {
 	_ = o.Read(this, "Id")  // find the CompanyFavoriteUser by id
 	_, _ = o.Delete(this)
 }
+
+
+
+
+
+
+
+
+//--------------------------------------- Create Methods Below --------------------------------------
+// Insert the UserFavoriteTask into the database
+func (this *UserFavoriteTask) Create() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Insert(this)
+}
+
+//--------------------------------------- Read Methods Below --------------------------------------
+// Read the UserFavoriteTask from the database
+// If the database doesn't contain this UserFavoriteTask, the UserFavoriteTask returned will have the id of 0
+func (this *UserFavoriteTask) Read() {
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this)    // read by id of the UserFavoriteTask
+}
+
+//--------------------------------------- Update Methods Below --------------------------------------
+// Update the UserFavoriteTask entity in the database
+func (this *UserFavoriteTask) Update() {
+	var _, o = modelsFunc.ConnectORM()
+	_, _ = o.Update(this)
+}
+
+//--------------------------------------- Delete Methods Below --------------------------------------
+// Delete the UserFavoriteTask by given Id
+func (this *UserFavoriteTask) Delete() {
+	var _, o = modelsFunc.ConnectORM()
+	_ = o.Read(this, "Id")  // find the UserFavoriteTask by id
+	_, _ = o.Delete(this)
+}
+

@@ -22,6 +22,11 @@ type Task struct {
 
 	// Many to One relationship
 	CompanyWhoPosted 		*Company 	`orm:"rel(fk)"`    // company who posted this task
+
+	// Reversed Many to Many relationship
+	UsersWhoFavorite   []*User    `orm:"reverse(many)"` // Reverse of Many to Many with User, users who favoriate the task
+
+
 }
 
 func (this *Task) AddTask() (int64, bool) {

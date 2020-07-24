@@ -29,6 +29,7 @@ type User struct {
 	// One to Many
 
 	// Many to many
+	FavoriteTasks  []*Task `orm:"rel(m2m);rel_through(wkBackEnd/models.UserFavoriteTask)"`     // Many to Many with User
 
 	// Reverse relationship
 	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser

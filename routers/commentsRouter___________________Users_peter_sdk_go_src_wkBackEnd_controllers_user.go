@@ -43,4 +43,22 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["wkBackEnd/controllers/user:UserController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers/user:UserController"],
+        beego.ControllerComments{
+            Method: "UserLikesTask",
+            Router: `/userLikesTask`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["wkBackEnd/controllers/user:UserController"] = append(beego.GlobalControllerRouter["wkBackEnd/controllers/user:UserController"],
+        beego.ControllerComments{
+            Method: "UserStopLikesTask",
+            Router: `/userStopLikesTask`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
 }
