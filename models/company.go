@@ -25,7 +25,7 @@ type Company struct {
 	// One to One
 
 	// One to Many
-	Projects []*Project `orm:"reverse(many)"`
+	//Projects []*Project `orm:"reverse(many)"`
 	TasksPosted []*Task `orm:"reverse(many)"`
 
 	// Many to many
@@ -113,11 +113,11 @@ func (this *Company) Delete() {
 // ================================================================================================
 
 // Obtain a list of all projects belong to the company
-func (this *Company) ReadAllProject() {
-	var _, o = modelsFunc.ConnectORM()
-	o.QueryTable("Project").Filter("Company__Id", this.Id).All(&this.Projects)
-// .Filter("Company", this.Id)
-}
+//func (this *Company) ReadAllProject() {
+//	var _, o = modelsFunc.ConnectORM()
+//	o.QueryTable("Project").Filter("Company__Id", this.Id).All(&this.Projects)
+//// .Filter("Company", this.Id)
+//}
 
 // Obtain a list of all tasks the company has posted
 func (this *Company) ReadPostedTaskList() {

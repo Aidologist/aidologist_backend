@@ -20,6 +20,5 @@ const (
 type ChatRoomType int
 
 const (
-	ProjectChat = 1
-	TaskChat = 2
+	TaskChat = 1
 )

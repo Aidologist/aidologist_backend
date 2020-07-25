@@ -10,7 +10,6 @@ package routers
 import (
 	"github.com/astaxie/beego"
 	companyController "wkBackEnd/controllers/company"
-	projectController "wkBackEnd/controllers/company/project"
 	taskController "wkBackEnd/controllers/task"
 	userController "wkBackEnd/controllers/user"
 )
@@ -31,11 +30,11 @@ func init() {
 			beego.NSInclude(
 				&companyController.CompanyController{},
 			),
-			beego.NSNamespace("/project",
-				beego.NSInclude(
-					&projectController.ProjectController{},
-				),
-			),
+			//beego.NSNamespace("/project",
+			//	beego.NSInclude(
+			//		&projectController.ProjectController{},
+			//	),
+			//),
 		),
 	)
 	beego.AddNamespace(ns)
