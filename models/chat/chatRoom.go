@@ -1,15 +1,17 @@
 package models
 
-import "time"
+import (
+	"time"
+	"wkBackEnd/models"
+)
 
 type ChatRoom struct {
-	Id       int
-	Name 	string
-}
+	Id       	int
+	Name 		string
+	Desc		string
+	CreateTime 	time.Time		`orm:"auto_now_add;type(datetime)"`
+	UpdateTime  time.Time		`orm:"auto_now;type(datetime)"`
 
-type Message struct {
-	Id		int
-	Type	int
-	Contain string
-	Time 	time.Time
+	Users		[]*models.User	`orm:"reverse(many)"`
+	Messages	[]*Message		`orm:"reverse(many)"`
 }

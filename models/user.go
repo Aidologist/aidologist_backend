@@ -2,6 +2,7 @@ package models
 
 import (
 	"time"
+	models "wkBackEnd/models/chat"
 	"wkBackEnd/utils/databases"
 	"wkBackEnd/utils/modelsFunc"
 )
@@ -25,11 +26,13 @@ type User struct {
 	//Profile  *Profile `orm:"null;rel(one);on_delete(set_null)"`
 
 	// One to One
+	SendMessages	[]*models.Message `orm:"reverse(many)"`
 
 	// One to Many
 
 	// Many to many
 	FavoriteTasks  []*Task `orm:"rel(m2m);rel_through(wkBackEnd/models.UserFavoriteTask)"`     // Many to Many with User
+	ChatRoom 		[]*models.ChatRoom `orm:"rel(m2m);rel_through(wkBackEnd/models.UserInChatRoom)"`
 
 	// Reverse relationship
 	CompaniesWhoFavorite   []*Company    `orm:"reverse(many)"` // Reverse of Many to Many with CompanyUser, users liked by the CompanyUser
