@@ -13,13 +13,13 @@ type User struct {
 	CreateTime 		time.Time	`orm:"auto_now_add;type(datetime)"`
 	LastLoginTime  	time.Time
 
-	// One to One
+	// ========== One to One ==========
 
-	// One to Many
+	// ========== One to Many ==========
 
-	// Many to many
+	// ========== Many to many ==========
 
-	// Reverse relationships
+	// ========== Reverse relationships ==========
 }
 
 // ================================================================================================
