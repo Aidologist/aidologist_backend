@@ -61,3 +61,8 @@ func (this *User) Delete() {
 //------------------------------------- Advanced Methods Below ------------------------------------
 //------------------------------ Advanced CRUD, special model methods -----------------------------
 // ================================================================================================
+
+func (this *User) CheckIfEmailExists() bool {
+	var _, o = databases.ConnectOrm()
+	return o.QueryTable("user").Filter("e_mail", this.EMail).Exist()
+}
